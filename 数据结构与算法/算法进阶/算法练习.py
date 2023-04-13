@@ -1,0 +1,5 @@
+n=bin(int(input()))[2:].split('0')
+print(n)
+n.sort(key=lambda x:len(x),reverse=True)
+print(n)
+print(len(n[0]))

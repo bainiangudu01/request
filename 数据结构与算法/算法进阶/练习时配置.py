@@ -27,5 +27,7 @@
 #
 # l=[random.randint(0,15) for i in range(30)]
 # print(l)
-match={'(':')','{':'}','[':']'}
-print(list(match.keys()))
+# match={'(':')','{':'}','[':']'}
+# print(list(match.keys()))
+l = [1, 2, 3]
+print(l[:-1])
