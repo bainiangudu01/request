@@ -10,6 +10,7 @@ headers = {
 }
 resp = requests.post(
     "https://mime-sh.baidu.com/imrobot/v0/pri/test/pe_push_strategy_unlimited",
+
     json={
         "user_status": 1,
         "uid": 2781443028,
@@ -19,3 +20,4 @@ resp = requests.post(
     }, )
 print(resp.status_code)
 print(resp.text)
+# http://amis.baidu.com/group/inputshahe/robot/ime_robot_social_platform_config_list 配置列表在这个网站
