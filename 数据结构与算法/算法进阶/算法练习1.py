@@ -1,25 +1,13 @@
 while True:
     try:
-        ip = input()  # ip地址
-        num = input()  # 10进制ip地址
+        m, n = map(int, input().split())
+        x1, y1, x2, y2 = map(int, input().split())
+        x, y = int(input()), int(input())
+        x3, y3 = map(int, input().split())
+        print(0 if m <= 9 and n <= 9 else -1)
+        print(0 if x1 < m and x2 < m and y1 < n and y2 < n else -1)
+        print(0 if 9 > m > x else -1)
+        print(0 if 9 > n > y else -1)
+        print(0 if x3 < m and y3 < n else -1)
     except:
         break
-    else:
-        # ip to num
-        ip_list = ip.split('.')  # 列表
-        ip2num = str()
-        for i in ip_list:
-            a = bin(int(i, 10))[2:]
-            a = '0' * (8 - len(a)) + a if len(a) < 8 else a
-            ip2num += a
-        print(int(ip2num, 2))
-
-        # num to ip
-        num2ip = []
-        num2 = bin(int(num, 10))[2:]
-        num2 = '0' * (32 - len(num2)) + num2 if len(num2) < 32 else num2
-        for i in range(4):
-            b = num2[8 * i:8 * i + 8]
-            b = str(int(b, 2))
-            num2ip.append(b)
-        print('.'.join(num2ip))

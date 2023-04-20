@@ -1,19 +1,54 @@
-ip=list(map(int,input().split('.')))
-ip_10=int(input())
-s=""
-for i in ip:
-    a=bin(i)[2:]
-    if len(a)<=8:
-        a='0'*(8-len(a))+a
-        s+=a
-print(int(s,2))
+while True:
+    try:
+        m, n = map(int, input().split())
+        # 初始化表格
+        if m <= 9 and n <= 9:
+            print(0)
+            l = [[0 for i in range(n)] for i in range(m)]
+        else:
+            print(-1)
 
-ip_2=bin(ip_10)[2:]
-# print(ip_2)
-if len(ip_2)<=32:
-    ip_2='0'*(32-len(ip_2))+ip_2
-l=[]
-for i in range(0,len(ip_2),8):
-    l.append(str(int(ip_2[i:i+8],2)))
-print(".".join(l))
-
+        # 交换
+        x1, y1, x2, y2 = map(int, input().split())
+        if (x1 in range(m) and x2 in range(m)) and (y1 in range(n) and y2 in range(n)):
+            l[x1][y1], l[x2][y2] = l[x2][y2], l[x1][y1]
+            print(0)
+        else:
+            print(-1)
+        # 插入行
+        x = int(input())
+        l.insert(x, [0 for i in range(n)])
+        if len(l) > 9:
+            print(-1)
+        else:
+            print(0)
+            l.pop()
+        # 插入列
+        y = int(input())
+        if n==9 or y>=n:
+            print(-1)
+        else:
+            for i in range(m):
+                l[i].insert(y, 0)
+            for i in range(m):
+                if len(l[i]) > 9 or len(l[i]) > n + 1:
+                    print(-1)
+                    break
+                else:
+                    print(0)
+                    for i in range(m):
+                        l[i].pop()
+                    break
+        # 查询
+        x, y = map(int, input().split())
+        if x <= m - 1 and y <= n - 1:
+            print(0)
+        else:
+            print(-1)
+    except:
+        break
+# 7 3
+# 2 2 4 0
+# 4
+# 4
+# 6 2
