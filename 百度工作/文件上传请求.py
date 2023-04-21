@@ -4,7 +4,7 @@ headers = {
     "Authorization": "v_zhangyang30",
     "accept": "*/*",
 }
-f = open("C://Users/13792/Desktop/下载内容/输入法/11.7.0.14.apk", "rb")
+f = open("11.7.0.16.apk", "rb")
 resp = requests.post(
     "https://quick.baidu-int.com/api/file/app",
     headers=headers,
