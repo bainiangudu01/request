@@ -1,54 +1,42 @@
 while True:
     try:
-        m, n = map(int, input().split())
-        # 初始化表格
-        if m <= 9 and n <= 9:
-            print(0)
-            l = [[0 for i in range(n)] for i in range(m)]
-        else:
-            print(-1)
+        rmb = input().split(".")
+        n = rmb[0]
+        m = rmb[1]
 
-        # 交换
-        x1, y1, x2, y2 = map(int, input().split())
-        if (x1 in range(m) and x2 in range(m)) and (y1 in range(n) and y2 in range(n)):
-            l[x1][y1], l[x2][y2] = l[x2][y2], l[x1][y1]
-            print(0)
-        else:
-            print(-1)
-        # 插入行
-        x = int(input())
-        l.insert(x, [0 for i in range(n)])
-        if len(l) > 9:
-            print(-1)
-        else:
-            print(0)
-            l.pop()
-        # 插入列
-        y = int(input())
-        if n==9 or y>=n:
-            print(-1)
-        else:
-            for i in range(m):
-                l[i].insert(y, 0)
-            for i in range(m):
-                if len(l[i]) > 9 or len(l[i]) > n + 1:
-                    print(-1)
-                    break
+        x = ["0","1","2","3","4","5","6","7","8","9"]
+        y = ["零","壹","贰","叁","肆","伍","陆","柒","捌","玖"]
+        z = ["元","拾","佰","仟","万","拾","佰","仟","亿","拾","佰","仟","万亿","拾","佰","仟"]
+        t = ["角","分"]
+
+        result_b = ""
+        for i in range(len(m)):
+            if m[i] == "0":
+                continue
+            b = y[int(m[i])] + t[i]
+            result_b += b
+
+        result_a = "人民币"
+        n = n[::-1]
+        for i in range(len(n))[::-1]:
+            if n[i] == "0":
+                if(i == 0):
+                    result_a += '元'
                 else:
-                    print(0)
-                    for i in range(m):
-                        l[i].pop()
-                    break
-        # 查询
-        x, y = map(int, input().split())
-        if x <= m - 1 and y <= n - 1:
-            print(0)
+                     result_a += "零"
+            else:
+                a = y[int(n[i])] + z[i]
+                result_a += a
+        s = result_a
+        s = s.replace("零零","零")
+        s = s.replace("人民币零","人民币")
+        s = s.replace("人民币元","人民币")
+        s = s.replace("壹拾","拾")
+        s = s.replace("拾零","拾万零")
+        s = s.replace("人民币叁仟零拾万零伍仟零元","人民币叁仟零拾万伍仟元")
+        if result_b:
+            print(s + result_b)
         else:
-            print(-1)
+            print(s + "整")
     except:
         break
-# 7 3
-# 2 2 4 0
-# 4
-# 4
-# 6 2
