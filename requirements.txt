@@ -7,5 +7,9 @@ pytest-base-url
 allure-pytest
 requests
 
+beautifulsoup4
 pymysql
 rsa
+
+
+
