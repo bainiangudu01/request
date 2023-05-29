@@ -14,18 +14,18 @@ driver.execute_cdp_cmd("Page.addScriptToEvaluateOnNewDocument",
 driver.get(url)
 
 def huakuai():
-# id = driver.find_element_by_xpath('//*[@id="wrap"]/div[2]/div[1]/div[2]/div/form/div[5]/div[1]').get_attribute('data-nc-idx')
-# print(id)
-# time.sleep(0.5)
-# huakuai = driver.find_element_by_xpath('//*[@id="nc_{}_n1z"]'.format(id))
-# action = ActionChains(driver)
-# action.click_and_hold(huakuai).perform()
-# time.sleep(1)
-# for i in range(12):
-#     action.move_by_offset(i, 0).perform()
-# action.release().perform()
-# action.release(on_element=huakuai).perform()
-    pass
+    id = driver.find_element_by_xpath('//*[@id="wrap"]/div[2]/div[1]/div[2]/div/form/div[5]/div[1]').get_attribute('data-nc-idx')
+    print(id)
+    time.sleep(0.5)
+huakuai = driver.find_element_by_xpath('//*[@id="nc_{}_n1z"]'.format(id))
+action = ActionChains(driver)
+action.click_and_hold(huakuai).perform()
+time.sleep(1)
+for i in range(12):
+    action.move_by_offset(i, 0).perform()
+action.release().perform()
+action.release(on_element=huakuai).perform()
+pass
 time.sleep(5)
 
 driver.find_element_by_xpath('//*[@id="wrap"]/div[2]/div[1]/div[2]/div/form/div[3]/span[2]/input').click()
