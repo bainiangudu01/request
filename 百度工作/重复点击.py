@@ -1,7 +1,5 @@
 import os
 import time
-
-
 def dfs():
     cmd=["adb shell input tap 517 1845",
          "adb shell input tap 310 1870",
@@ -25,7 +23,6 @@ def dfs():
     os.system("adb shell input tap 1019 1089")
     for i in range(4):
          os.system("adb shell input tap  982 1695")
-
 
 for i in range(100):
      dfs()
